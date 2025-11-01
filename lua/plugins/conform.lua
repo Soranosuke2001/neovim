@@ -1,13 +1,21 @@
 -- Conform (Autoformat)
 
-local conform_keybinds = require("config.keybinds").conform_keybinds
-
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	keys = {
-		conform_keybinds(),
+		{
+      "<leader>ff",
+		function()
+			require("conform").format({
+				async = true,
+				lsp_format = "fallback",
+			})
+		end,
+		mode = "",
+		desc = "[F]ormat [F]ile",
+    },
 	},
 	opts = {
 		notify_on_error = false,

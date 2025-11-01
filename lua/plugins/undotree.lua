@@ -1,10 +1,8 @@
 -- Undotree
 
-local undotree_keybinds = require("config.keybinds").undotree_keybinds
-
 return {
 	"mbbill/undotree",
 	config = function()
-		undotree_keybinds()
+    vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "[T]oggle [U]ndotree " })
 	end,
 }
