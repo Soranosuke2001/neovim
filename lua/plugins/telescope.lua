@@ -1,5 +1,7 @@
 -- Telescope
 
+local telescope_keybinds = require("config.keybinds").telescope_keybinds
+
 return {
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
@@ -29,5 +31,7 @@ return {
 
 		pcall(require("telescope").load_extensions, "fzf")
 		pcall(require("telescope").load_extensions, "ui-select")
+
+		telescope_keybinds()
 	end,
 }
