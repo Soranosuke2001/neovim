@@ -1,6 +1,4 @@
 -- TODO
--- autocomplete
--- mini.nvim
 
 -- Map Leader
 vim.g.mapleader = " "

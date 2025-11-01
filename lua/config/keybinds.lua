@@ -17,18 +17,20 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highl
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Telescope Search
-vim.keymap.set("n", "<leader>sf", tel_builtin.find_files, { desc = "Telescope [S]earch [F]ile" })
-vim.keymap.set("n", "<leader>sg", tel_builtin.live_grep, { desc = "Telescope [S]earch Live [G]rep" })
-vim.keymap.set("n", "<leader>sG", tel_builtin.grep_string, { desc = "Telescope [S]earch [G]rep String" })
-vim.keymap.set("n", "<leader>sb", tel_builtin.buffers, { desc = "Telescope [S]earch [B]uffers" })
-vim.keymap.set("n", "<leader>sn", function()
-	tel_builtin.find_files({ cwd = vim.fn.stdpath("config") })
-end, { desc = "Telescope [S]earch [B]uffers" })
+function K.telescope_keybinds()
+	vim.keymap.set("n", "<leader>sf", tel_builtin.find_files, { desc = "Telescope [S]earch [F]ile" })
+	vim.keymap.set("n", "<leader>sg", tel_builtin.live_grep, { desc = "Telescope [S]earch Live [G]rep" })
+	vim.keymap.set("n", "<leader>sG", tel_builtin.grep_string, { desc = "Telescope [S]earch [G]rep String" })
+	vim.keymap.set("n", "<leader>sb", tel_builtin.buffers, { desc = "Telescope [S]earch [B]uffers" })
+	vim.keymap.set("n", "<leader>sn", function()
+		tel_builtin.find_files({ cwd = vim.fn.stdpath("config") })
+	end, { desc = "Telescope [S]earch [B]uffers" })
 
--- Telescope Git
-vim.keymap.set("n", "<leader>gc", tel_builtin.git_commits, { desc = "Telescope [G]it [C]ommits" })
-vim.keymap.set("n", "<leader>gs", tel_builtin.git_status, { desc = "Telescope [G]it [S]tatus" })
-vim.keymap.set("n", "<leader>gS", tel_builtin.git_stash, { desc = "Telescope [G]it [S]tash" })
+	-- Telescope Git
+	vim.keymap.set("n", "<leader>gc", tel_builtin.git_commits, { desc = "Telescope [G]it [C]ommits" })
+	vim.keymap.set("n", "<leader>gs", tel_builtin.git_status, { desc = "Telescope [G]it [S]tatus" })
+	vim.keymap.set("n", "<leader>gS", tel_builtin.git_stash, { desc = "Telescope [G]it [S]tash" })
+end
 
 -- LSP
 function K.lsp_keybinds(event)
@@ -60,6 +62,11 @@ function K.conform_keybinds()
 		mode = "",
 		desc = "[F]ormat [F]ile",
 	}
+end
+
+-- Undotree
+function K.undotree_keybinds()
+	vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "[T]oggle [U]ndotree " })
 end
 
 return K
