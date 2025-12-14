@@ -1,8 +1,13 @@
--- TODO
-
 -- Map Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Loading Plugins
+require("config.lazy")
+require("config.yank")
+require("config.keybinds")
+
+-- require("java").setup()
 
 -- Line Numbers
 vim.o.number = true
@@ -33,8 +38,5 @@ vim.opt.expandtab = true
 
 -- NeoVim Colorscheme
 vim.cmd.colorscheme("habamax")
-
--- Loading Plugins
-require("config.lazy")
-require("config.yank")
-require("config.keybinds")
+-- vim.cmd.colorscheme("carbonfox")
+-- vim.cmd.colorscheme("vscode_modern")

@@ -4,6 +4,7 @@ return {
 	"neovim/nvim-lspconfig",
 
 	dependencies = {
+		"mfussenegger/nvim-jdtls",
 		{
 			"mason-org/mason.nvim",
 			opts = {},
@@ -75,7 +76,7 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		local servers = {
-			jdtls = {},
+			-- jdtls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -102,7 +103,7 @@ return {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilites, server.capabilities or {})
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
