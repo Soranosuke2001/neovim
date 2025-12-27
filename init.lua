@@ -40,3 +40,6 @@ vim.opt.expandtab = true
 vim.cmd.colorscheme("habamax")
 -- vim.cmd.colorscheme("carbonfox")
 -- vim.cmd.colorscheme("vscode_modern")
+
+local treesitter = require('treesitter.treesitter_setup')
+treesitter.setup()
