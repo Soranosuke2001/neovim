@@ -76,7 +76,6 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		local servers = {
-			-- jdtls = {},
 			lua_ls = {
 				settings = {
 					Lua = {

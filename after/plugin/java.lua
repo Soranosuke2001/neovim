@@ -1,21 +1,14 @@
-
--- ~/.config/nvim/ftplugin/java.lua
+print("running java.lua")
 
 local home = os.getenv("HOME")
 local mason_path = home .. "/.local/share/nvim/mason"
 local jdtls_path = mason_path .. "/packages/jdtls"
 
--- 1. LOCATE LOMBOK (Using the path you found earlier)
-local lombok_path = mason_path .. "/packages/lombok-nightly/lombok.jar"
+local lombok_path = home .. "/.local/share/java/lombok/lombok.jar"
 
--- 2. LOCATE THE JAR LAUNCHER
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
--- 3. DETERMINE OS CONFIG
-local system_os = "linux"
-if vim.fn.has("mac") == 1 then
-	system_os = "mac"
-end
+local system_os = "mac"
 
 -- 4. CALCULATE WORKSPACE DATA
 -- This creates a unique workspace for every project, preventing cache conflicts
@@ -24,7 +17,7 @@ local workspace_dir = home .. "/.cache/jdtls-workspace/" .. project_name
 
 local config = {
 	cmd = {
-		"java", -- Or absolute path to JDK 17+
+		"/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/bin/java", -- absolute path to JDK 17+
 
 		-- IMPORTANT: The Lombok Agent
 		"-javaagent:" .. lombok_path,
