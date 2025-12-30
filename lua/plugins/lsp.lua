@@ -91,6 +91,7 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"jdtls",
+			"gopls",
 		})
 
 		require("mason-tool-installer").setup({

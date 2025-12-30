@@ -1,4 +1,4 @@
-print("running java.lua")
+-- Java Custom Config
 
 local home = os.getenv("HOME")
 local mason_path = home .. "/.local/share/nvim/mason"
