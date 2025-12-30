@@ -40,6 +40,13 @@ return {
 
 		completion = {
 			documentation = { auto_show = false, auto_show_delay_ms = 500 },
+			menu = {
+				draw = {
+					columns = {
+						{ "kind_icon", "kind", "label", "label_description", "source_name", gap = 1 },
+					},
+				},
+			},
 		},
 
 		sources = {

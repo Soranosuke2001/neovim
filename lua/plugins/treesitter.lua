@@ -8,7 +8,9 @@ return {
       "bash",
       "c",
       "diff",
+      "go",
       "html",
+      "java",
       "lua",
       "luadoc",
       "markdown",
@@ -16,7 +18,6 @@ return {
       "query",
       "vim",
       "vimdoc",
-      "java",
     },
     auto_install = true,
     highlight = {

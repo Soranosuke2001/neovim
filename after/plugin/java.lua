@@ -1,16 +1,26 @@
 -- Java Custom Config
 
+-- Variables
 local home = os.getenv("HOME")
 local mason_path = home .. "/.local/share/nvim/mason"
 local jdtls_path = mason_path .. "/packages/jdtls"
-
 local lombok_path = home .. "/.local/share/java/lombok/lombok.jar"
-
 local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
 local system_os = "mac"
 
--- 4. CALCULATE WORKSPACE DATA
+-- Check workspace
+local root_dir = require("jdtls.setup").find_root({
+	"mvnw",
+	"gradlew",
+	"pom.xml",
+	"build.gradle",
+})
+
+if root_dir == nil then
+	return
+end
+
 -- This creates a unique workspace for every project, preventing cache conflicts
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h"):match("([^/]+)$")
 local workspace_dir = home .. "/.cache/jdtls-workspace/" .. project_name
@@ -68,5 +78,4 @@ local config = {
 	end,
 }
 
--- 5. START THE SERVER
 require("jdtls").start_or_attach(config)

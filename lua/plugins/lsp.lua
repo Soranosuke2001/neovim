@@ -92,6 +92,7 @@ return {
 			"stylua",
 			"jdtls",
 			"gopls",
+			"postgres_lsp",
 		})
 
 		require("mason-tool-installer").setup({
