@@ -11,3 +11,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highl
 
 -- Diagnostics
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- Open NeoVim Notes
+vim.keymap.set("n", "<leader>on", function()
+	vim.cmd.tabedit(vim.fn.expand("~/Documents/Google Drive/Coding/notes/vim.md"))
+end, { desc = "[O]pen [N]eovim Notes" })

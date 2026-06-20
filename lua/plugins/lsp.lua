@@ -85,6 +85,7 @@ return {
 					},
 				},
 			},
+      pyright = {},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -93,6 +94,7 @@ return {
 			"jdtls",
 			"gopls",
 			"postgres_lsp",
+			"ruff",
 		})
 
 		require("mason-tool-installer").setup({

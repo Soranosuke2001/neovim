@@ -13,6 +13,9 @@ require("config.keybinds")
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- Line Wraps
+vim.opt.wrap = false
+
 -- Dont show the mode at the bottom
 vim.o.showmode = false
 
@@ -37,6 +40,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- NeoVim Colorscheme
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme("kanagawa-dragon")
+-- vim.cmd.colorscheme("habamax")
 -- vim.cmd.colorscheme("carbonfox")
 -- vim.cmd.colorscheme("vscode_modern")
